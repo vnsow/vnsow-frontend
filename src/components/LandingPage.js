@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { TrendingUp, Shield, Users, Calculator, ArrowRight, CheckCircle2, Percent, Clock, Globe, Facebook, Instagram, Info } from 'lucide-react';
+import { TrendingUp, Shield, Users, Calculator, ArrowRight, CheckCircle2, Percent, Clock, Globe, Facebook, Instagram, Info, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { useAuth } from '../context/AuthContext';
@@ -168,6 +168,62 @@ const LandingPage = () => {
               />
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Cómo Funciona */}
+      <section className="py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12 px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-2 sm:mb-4">Cómo Funciona</h2>
+            <p className="text-sm sm:text-base md:text-xl text-slate-600">Un proceso claro y supervisado en cada etapa</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6 p-4 sm:p-6 text-center">
+                <div className="bg-brand-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-brand-600">1</span>
+                </div>
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg text-slate-900 mb-1 sm:mb-2">Selección</h3>
+                <p className="text-xs sm:text-sm text-slate-600">Eliges tu plan.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6 p-4 sm:p-6 text-center">
+                <div className="bg-brand-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-brand-600">2</span>
+                </div>
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg text-slate-900 mb-1 sm:mb-2">Transferencia</h3>
+                <p className="text-xs sm:text-sm text-slate-600">Despliegue de fondos.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6 p-4 sm:p-6 text-center">
+                <div className="bg-brand-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-brand-600">3</span>
+                </div>
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg text-slate-900 mb-1 sm:mb-2">Validación Humana</h3>
+                <p className="text-xs sm:text-sm text-slate-600">Auditoría manual de tu transacción.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6 p-4 sm:p-6 text-center">
+                <div className="bg-brand-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <span className="text-xl sm:text-2xl font-bold text-brand-600">4</span>
+                </div>
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg text-slate-900 mb-1 sm:mb-2">Activación</h3>
+                <p className="text-xs sm:text-sm text-slate-600">Inicio automático de operaciones bajo supervisión activa.</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-8 sm:mt-10 md:mt-12 max-w-4xl mx-auto">
+            <div className="flex items-start gap-3 sm:gap-4 bg-brand-50 border-2 border-brand-200 rounded-lg p-4 sm:p-6">
+              <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-brand-600 flex-shrink-0 mt-0.5" />
+              <p className="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed">
+                <strong className="text-brand-700">"La liquidez no es diaria, es estratégica."</strong> Nuestra infraestructura opera exclusivamente bajo detección de oportunidades de mercado. Los periodos de inactividad son protocolos de seguridad diseñados para preservar el capital, por lo que la distribución de pagos y retiros se ejecuta conforme a los ciclos de rendimiento alcanzados, no mediante una frecuencia fija.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -457,6 +513,32 @@ const LandingPage = () => {
               </CardHeader>
               <CardContent className="p-4 sm:p-6 pt-0">
                 <p className="text-xs sm:text-sm md:text-base text-slate-600">Accede a tus ganancias cada 30 días o mensualmente según tu preferencia.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Evaluación de Proyectos */}
+      <section className="py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-2 shadow-xl">
+              <CardContent className="pt-6 p-6 sm:p-8 text-center">
+                <div className="bg-brand-100 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-brand-600" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">Evaluación de Proyectos</h2>
+                <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed">
+                  ¿Tienes un proyecto semilla en fase de crecimiento con alto potencial? Nuestro equipo de inversión busca activamente propuestas para inyección de capital. Envía tu proyecto y evaluaremos personalmente su viabilidad técnica y financiera para una posible integración en nuestra estructura.
+                </p>
+                <a
+                  href="mailto:support@vnsow.com?subject=Propuesta%20de%20Proyecto"
+                  className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-md text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 transition-colors shadow-lg hover:shadow-xl"
+                >
+                  Enviar Proyecto para Revisión
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5" />
+                </a>
               </CardContent>
             </Card>
           </div>
