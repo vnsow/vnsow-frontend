@@ -23,14 +23,16 @@ Interfaz web de la plataforma de inversión **VNSOW**: landing, autenticación, 
 
 ## Características
 
-- ✅ Landing page con calculadora de retornos
+- ✅ Landing page con simulador de rango por plan de ejecución
 - ✅ Autenticación (Google OAuth + Email/Password)
 - ✅ Dashboard de usuario con estadísticas
 - ✅ Gestión de inversiones y planes
 - ✅ Billetera interna con historial
 - ✅ Sistema de referidos
 - ✅ Panel de administración
-- ✅ Diseño responsive
+- ✅ Diseño responsive (headers a ancho completo en toda la app)
+
+> 📘 **Modelo de negocio** (planes de ejecución, ciclos, stop-loss, validación humana) documentado en el backend → [`vnsow-backend/docs/MODELO-VNSOW.md`](../vnsow-backend/docs/MODELO-VNSOW.md)
 
 ---
 

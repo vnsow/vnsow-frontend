@@ -67,7 +67,7 @@ const FAQ = () => {
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="w-full px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Button onClick={() => navigate('/')} variant="ghost" size="icon">
               <ArrowLeft className="h-5 w-5" />
