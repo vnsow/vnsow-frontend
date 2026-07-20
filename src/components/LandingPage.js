@@ -76,7 +76,7 @@ const LandingPage = () => {
           </div>
           <nav className="flex items-center gap-2 sm:gap-4">
             <a href="#planes" className="hidden md:inline text-slate-600 hover:text-brand-600 transition-colors text-sm">Planes</a>
-            <a href="#calculadora" className="hidden md:inline text-slate-600 hover:text-brand-600 transition-colors text-sm">Calculadora</a>
+            <a href="#calculadora" className="hidden md:inline text-slate-600 hover:text-brand-600 transition-colors text-sm">Simulador</a>
             {/* <a href="#referidos" className="hidden md:inline text-slate-600 hover:text-brand-600 transition-colors text-sm">Referidos</a> */}
             <Button onClick={() => setShowLoginModal(true)} variant="outline" className="border-brand-600 text-brand-600 hover:bg-brand-50 text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10">
               Iniciar Sesión
@@ -103,12 +103,12 @@ const LandingPage = () => {
             Sembrando capital en proyectos de alto impacto.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button onClick={() => setShowRegisterModal(true)} size="lg" className="bg-brand-600 hover:bg-brand-700 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6">
-              Comenzar a invertir
+            <Button onClick={() => document.getElementById('planes').scrollIntoView({ behavior: 'smooth' })} size="lg" className="bg-brand-600 hover:bg-brand-700 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6">
+              Seleccionar Plan de Ejecución
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
             <Button variant="outline" size="lg" className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6" onClick={() => document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' })}>
-              Calcular retornos
+              Ver simulador
             </Button>
           </div>
         </div>
@@ -610,7 +610,7 @@ const LandingPage = () => {
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Producto</h3>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-400">
                 <li><a href="#planes" className="hover:text-white transition-colors">Planes</a></li>
-                <li><a href="#calculadora" className="hover:text-white transition-colors">Calculadora</a></li>
+                <li><a href="#calculadora" className="hover:text-white transition-colors">Simulador</a></li>
                 {/* <li><a href="#referidos" className="hover:text-white transition-colors">Referidos</a></li> */}
               </ul>
             </div>
