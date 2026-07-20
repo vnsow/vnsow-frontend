@@ -543,7 +543,7 @@ const LandingPage = () => {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Soporte</h3>
               <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-400">
-                <li><a href="mailto:support@iastake.com" className="hover:text-white transition-colors">Contacto</a></li>
+                <li><a href="mailto:support@vnsow.com" className="hover:text-white transition-colors">Contacto</a></li>
                 <li><a href="/faq" className="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
                 <li><a href="/terminos" className="hover:text-white transition-colors">Términos y Condiciones</a></li>
                 <li><a href="/privacidad" className="hover:text-white transition-colors">Políticas de Privacidad</a></li>
@@ -551,7 +551,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="border-t border-slate-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-slate-400">
-            <p>&copy; 2025 iastake.com. Todos los derechos reservados.</p>
+            <p>&copy; 2025 vnsow.com. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>

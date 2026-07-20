@@ -42,7 +42,7 @@ const API = `${BACKEND_URL}/api`;
 
 // Variables de URL base - comentar/descomentar según el entorno
 // const BASE_URL = 'http://localhost:3000'; // Desarrollo
-const BASE_URL = 'https://iastake.com'; // Producción
+const BASE_URL = 'https://vnsow.com'; // Producción
 
 // Helper para formatear fechas en formato DD/MM/YYYY
 const formatDate = (dateString) => {

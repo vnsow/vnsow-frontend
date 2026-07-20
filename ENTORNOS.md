@@ -22,7 +22,7 @@ npm start
 npm run build
 ```
 - Usa automáticamente `.env.production`
-- Backend: `https://smart-investment-backend.onrender.com`
+- Backend: `https://vnsow-backend.onrender.com`
 
 ### Deploy en Firebase
 ```bash
@@ -44,7 +44,7 @@ firebase deploy
 
 ### Producción (.env.production)
 ```
-REACT_APP_BACKEND_URL=https://smart-investment-backend.onrender.com
+REACT_APP_BACKEND_URL=https://vnsow-backend.onrender.com
 ```
 
 ### Desarrollo (.env.local)

@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
             <AlertTriangle className="h-5 w-5 text-amber-600" />
             <AlertTitle className="text-amber-900 font-bold">AVISO IMPORTANTE - LEA CUIDADOSAMENTE</AlertTitle>
             <AlertDescription className="text-amber-800">
-              Al utilizar iastake.com, usted acepta estos términos en su totalidad. Si no está de acuerdo con alguna parte, no utilice nuestros servicios. La inversión conlleva riesgos y los retornos son variables.
+              Al utilizar vnsow.com, usted acepta estos términos en su totalidad. Si no está de acuerdo con alguna parte, no utilice nuestros servicios. La inversión conlleva riesgos y los retornos son variables.
             </AlertDescription>
           </Alert>
 
@@ -59,10 +59,10 @@ const TermsAndConditions = () => {
               </CardHeader>
               <CardContent className="pt-6">
                 <p className="text-slate-700 mb-4">
-                  Al acceder y utilizar la plataforma iastake.com ("el Servicio", "la Plataforma", "nosotros", "nuestro"), operada por iastake.com ("la Compañía"), usted ("el Usuario", "usted", "Cliente") acepta estar legalmente vinculado por estos Términos y Condiciones.
+                  Al acceder y utilizar la plataforma vnsow.com ("el Servicio", "la Plataforma", "nosotros", "nuestro"), operada por vnsow.com ("la Compañía"), usted ("el Usuario", "usted", "Cliente") acepta estar legalmente vinculado por estos Términos y Condiciones.
                 </p>
                 <p className="text-slate-700">
-                  Estos términos constituyen un acuerdo legal entre usted y iastake.com. Si no acepta estos términos, debe cesar el uso de la plataforma inmediatamente.
+                  Estos términos constituyen un acuerdo legal entre usted y vnsow.com. Si no acepta estos términos, debe cesar el uso de la plataforma inmediatamente.
                 </p>
               </CardContent>
             </Card>
@@ -77,7 +77,7 @@ const TermsAndConditions = () => {
               </CardHeader>
               <CardContent className="pt-6">
                 <p className="text-slate-700 mb-4">
-                  iastake.com es una plataforma de inversión que ofrece acceso a mercados tangibles e intangibles, incluyendo pero no limitado a:
+                  vnsow.com es una plataforma de inversión que ofrece acceso a mercados tangibles e intangibles, incluyendo pero no limitado a:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-4">
                   <li><strong>Activos Tangibles:</strong> Bienes raíces, metales preciosos, commodities, arte y coleccionables</li>
@@ -425,7 +425,7 @@ const TermsAndConditions = () => {
               <CardContent className="pt-6">
                 <h4 className="font-bold text-slate-900 mb-3">Proceso de Resolución:</h4>
                 <ol className="list-decimal pl-6 space-y-2 text-slate-700 mb-4">
-                  <li>Contacte a soporte: support@iastake.com</li>
+                  <li>Contacte a soporte: support@vnsow.com</li>
                   <li>Proporcione detalles completos de la disputa</li>
                   <li>Tiempo de respuesta: 5-10 días hábiles</li>
                   <li>Si no se resuelve, puede escalar a mediación</li>
@@ -450,8 +450,8 @@ const TermsAndConditions = () => {
                   Para preguntas, soporte o reportar problemas:
                 </p>
                 <div className="bg-slate-50 p-4 rounded-lg">
-                  <p className="text-slate-700"><strong>Email:</strong> support@iastake.com</p>
-                  <p className="text-slate-700"><strong>Sitio web:</strong> www.iastake.com</p>
+                  <p className="text-slate-700"><strong>Email:</strong> support@vnsow.com</p>
+                  <p className="text-slate-700"><strong>Sitio web:</strong> www.vnsow.com</p>
                   <p className="text-slate-700"><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM EST</p>
                   <p className="text-slate-700 mt-2 text-sm">Tiempo de respuesta: 24-48 horas hábiles</p>
                 </div>
@@ -528,7 +528,7 @@ const TermsAndConditions = () => {
               <CheckCircle2 className="h-5 w-5 text-brand-600" />
               <AlertTitle className="text-brand-900 font-bold">Aceptación de Términos</AlertTitle>
               <AlertDescription className="text-brand-800">
-                Al utilizar iastake.com, usted confirma que ha leído, comprendido y aceptado estos Términos y Condiciones en su totalidad, incluyendo la Declaración de Riesgos. Si no está de acuerdo, debe cesar el uso de la plataforma inmediatamente.
+                Al utilizar vnsow.com, usted confirma que ha leído, comprendido y aceptado estos Términos y Condiciones en su totalidad, incluyendo la Declaración de Riesgos. Si no está de acuerdo, debe cesar el uso de la plataforma inmediatamente.
               </AlertDescription>
             </Alert>
 
@@ -552,7 +552,7 @@ const TermsAndConditions = () => {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 text-sm">&copy; 2025 iastake.com. Todos los derechos reservados.</p>
+          <p className="text-slate-400 text-sm">&copy; 2025 vnsow.com. Todos los derechos reservados.</p>
           <p className="text-slate-500 text-xs mt-2">Última actualización: 5 de Enero, 2025</p>
         </div>
       </footer>

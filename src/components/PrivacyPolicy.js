@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
             <Shield className="h-5 w-5 text-blue-600" />
             <AlertTitle className="text-blue-900 font-bold">COMPROMISO CON SU PRIVACIDAD</AlertTitle>
             <AlertDescription className="text-blue-800">
-              En iastake.com nos tomamos muy en serio la protección de sus datos personales. Esta política explica cómo recopilamos, usamos, almacenamos y protegemos su información.
+              En vnsow.com nos tomamos muy en serio la protección de sus datos personales. Esta política explica cómo recopilamos, usamos, almacenamos y protegemos su información.
             </AlertDescription>
           </Alert>
 
@@ -313,7 +313,7 @@ const PrivacyPolicy = () => {
 
                 <div className="bg-slate-50 p-4 rounded-lg mt-4">
                   <p className="text-slate-700 text-sm">
-                    Para ejercer estos derechos, contáctenos en: <strong>privacy@iastake.com</strong>
+                    Para ejercer estos derechos, contáctenos en: <strong>privacy@vnsow.com</strong>
                     <br />Responderemos a su solicitud dentro de 30 días.
                   </p>
                 </div>
@@ -400,9 +400,9 @@ const PrivacyPolicy = () => {
                   Para preguntas, solicitudes o inquietudes sobre privacidad:
                 </p>
                 <div className="bg-slate-50 p-4 rounded-lg">
-                  <p className="text-slate-700"><strong>Email de Privacidad:</strong> privacy@iastake.com</p>
-                  <p className="text-slate-700"><strong>Email General:</strong> support@iastake.com</p>
-                  <p className="text-slate-700"><strong>Sitio web:</strong> www.iastake.com</p>
+                  <p className="text-slate-700"><strong>Email de Privacidad:</strong> privacy@vnsow.com</p>
+                  <p className="text-slate-700"><strong>Email General:</strong> support@vnsow.com</p>
+                  <p className="text-slate-700"><strong>Sitio web:</strong> www.vnsow.com</p>
                   <p className="text-slate-700 mt-2 text-sm">Tiempo de respuesta: 5-10 días hábiles para solicitudes de privacidad</p>
                 </div>
               </CardContent>
@@ -413,7 +413,7 @@ const PrivacyPolicy = () => {
               <CheckCircle2 className="h-5 w-5 text-brand-600" />
               <AlertTitle className="text-brand-900 font-bold">Consentimiento</AlertTitle>
               <AlertDescription className="text-brand-800">
-                Al utilizar iastake.com, usted acepta esta Política de Privacidad y el procesamiento de sus datos personales según lo descrito. Si no está de acuerdo, por favor no utilice nuestros servicios.
+                Al utilizar vnsow.com, usted acepta esta Política de Privacidad y el procesamiento de sus datos personales según lo descrito. Si no está de acuerdo, por favor no utilice nuestros servicios.
               </AlertDescription>
             </Alert>
 
@@ -437,7 +437,7 @@ const PrivacyPolicy = () => {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 text-sm">&copy; 2026 iastake.com. Todos los derechos reservados.</p>
+          <p className="text-slate-400 text-sm">&copy; 2026 vnsow.com. Todos los derechos reservados.</p>
           <p className="text-slate-500 text-xs mt-2">Última actualización: 9 de Enero, 2026</p>
         </div>
       </footer>

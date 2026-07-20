@@ -13,8 +13,8 @@ const FAQ = () => {
       category: "General",
       questions: [
         {
-          question: "¿Qué es iastake.com?",
-          answer: "iastake.com es una plataforma profesional de inversión que ofrece acceso a mercados tangibles e intangibles con retornos variables del 2.5% al 7% mensual, dependiendo del plan seleccionado y las condiciones del mercado."
+          question: "¿Qué es vnsow.com?",
+          answer: "vnsow.com es una plataforma profesional de inversión que ofrece acceso a mercados tangibles e intangibles con retornos variables del 2.5% al 7% mensual, dependiendo del plan seleccionado y las condiciones del mercado."
         },
         {
           question: "¿Cómo funciona la plataforma?",
@@ -153,7 +153,7 @@ const FAQ = () => {
       questions: [
         {
           question: "¿Cómo contacto con soporte?",
-          answer: "Puedes contactarnos por:\n\n• Email: support@iastake.com\n• Chat en vivo (próximamente)\n• Formulario de contacto en la web\n\nTiempo de respuesta: 24-48 horas hábiles."
+          answer: "Puedes contactarnos por:\n\n• Email: support@vnsow.com\n• Chat en vivo (próximamente)\n• Formulario de contacto en la web\n\nTiempo de respuesta: 24-48 horas hábiles."
         },
         {
           question: "¿Tienen horario de atención?",
@@ -174,7 +174,7 @@ const FAQ = () => {
             </Button>
             <div className="flex items-center gap-2">
               <TrendingUp className="h-8 w-8 text-brand-600" />
-              <span className="text-2xl font-bold text-slate-900">iastake.com</span>
+              <span className="text-2xl font-bold text-slate-900">vnsow.com</span>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@ const FAQ = () => {
                 <Button onClick={() => navigate('/')} className="bg-brand-600 hover:bg-brand-700">
                   Volver al Inicio
                 </Button>
-                <Button variant="outline" onClick={() => window.location.href = 'mailto:support@iastake.com'}>
+                <Button variant="outline" onClick={() => window.location.href = 'mailto:support@vnsow.com'}>
                   Contactar Soporte
                 </Button>
               </div>
@@ -258,7 +258,7 @@ const FAQ = () => {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 text-sm">&copy; 2025 iastake.com. Todos los derechos reservados.</p>
+          <p className="text-slate-400 text-sm">&copy; 2025 vnsow.com. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>

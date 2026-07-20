@@ -15,7 +15,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 // Variables de URL base - comentar/descomentar según el entorno
 // const BASE_URL = 'http://localhost:3000'; // Desarrollo
-const BASE_URL = 'https://iastake.com'; // Producción
+const BASE_URL = 'https://vnsow.com'; // Producción
 
 const RegisterWithReferral = () => {
   const [searchParams] = useSearchParams();

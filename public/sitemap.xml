@@ -6,7 +6,7 @@
 
     <!-- Homepage -->
     <url>
-        <loc>https://iastake.com/</loc>
+        <loc>https://vnsow.com/</loc>
         <lastmod>2026-01-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
     <!-- FAQ -->
     <url>
-        <loc>https://iastake.com/faq</loc>
+        <loc>https://vnsow.com/faq</loc>
         <lastmod>2026-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
     <!-- Terminos y Condiciones -->
     <url>
-        <loc>https://iastake.com/terminos</loc>
+        <loc>https://vnsow.com/terminos</loc>
         <lastmod>2026-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -30,7 +30,7 @@
 
     <!-- Politica de Privacidad -->
     <url>
-        <loc>https://iastake.com/privacidad</loc>
+        <loc>https://vnsow.com/privacidad</loc>
         <lastmod>2026-01-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
