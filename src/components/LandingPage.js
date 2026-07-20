@@ -18,7 +18,7 @@ const LandingPage = () => {
   const { user, logout: userLogout } = useAuth();
   const { admin, logout: adminLogout } = useAdminAuth();
   const [calculatorAmount, setCalculatorAmount] = useState(5000);
-  const [selectedPlan, setSelectedPlan] = useState('mensual');
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -46,6 +46,7 @@ const LandingPage = () => {
         setPlans(response.data);
         if (response.data.length > 0) {
           setSelectedPlanCard(response.data[0]);
+          setSelectedPlan(response.data[0]._id);
         }
       } catch (error) {
         console.error('Error fetching plans:', error);
@@ -56,13 +57,13 @@ const LandingPage = () => {
     fetchPlans();
   }, []);
 
-  const calculateReturn = () => {
-    // 15-day plan hidden
-    // if (selectedPlan === '15') {
-    //   if (calculatorAmount < 10000) return calculatorAmount * 0.05; // 3-7% average = 5%
-    //   return calculatorAmount * 0.10; // 8-12% average = 10%
-    // }
-    return calculatorAmount * 0.0475; // 2.5-7% average = 4.75%
+  // Simulador de rango: el rendimiento es VARIABLE (de 0% hasta el maximo del plan por ciclo).
+  // No se proyecta un valor unico porque no existe tasa fija ni garantia de rentabilidad.
+  const simulatedPlan = plans.find((p) => p._id === selectedPlan) || null;
+
+  const simulatedMax = () => {
+    if (!simulatedPlan) return 0;
+    return calculatorAmount * ((Number(simulatedPlan.rate_max) || 0) / 100);
   };
 
   return (
@@ -233,8 +234,8 @@ const LandingPage = () => {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8 sm:mb-10 md:mb-12 px-2">
               <Calculator className="h-10 w-10 sm:h-12 sm:w-12 text-brand-600 mx-auto mb-3 sm:mb-4" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-2 sm:mb-4">Calculadora de Retornos</h2>
-              <p className="text-sm sm:text-base md:text-xl text-slate-600">Estima tus ganancias potenciales antes de invertir</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-2 sm:mb-4">Simulador de Rango</h2>
+              <p className="text-sm sm:text-base md:text-xl text-slate-600">Consulta el rango posible según el plan de ejecución y el monto</p>
             </div>
             <Card className="border-2 shadow-xl">
               <CardContent className="pt-4 sm:pt-6 p-4 sm:p-6">
@@ -258,46 +259,44 @@ const LandingPage = () => {
                   </div>
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-2">
-                      Plan de inversión
+                      Plan de ejecución
                     </label>
                     <div className="grid grid-cols-1 gap-3 sm:gap-4">
-                      {/* 15-day plan hidden
-                      <button
-                        onClick={() => setSelectedPlan('15')}
-                        className={`p-3 sm:p-4 border-2 rounded-lg text-left transition-all ${
-                          selectedPlan === '15' ? 'border-brand-600 bg-brand-50' : 'border-slate-200 hover:border-slate-300'
-                        }`}
-                      >
-                        <div className="font-semibold text-xs sm:text-sm md:text-base text-slate-900">Retiro 15 días</div>
-                        <div className="text-xs sm:text-sm text-slate-600">3% - 12% mensual</div>
-                      </button>
-                      */}
-                      <button
-                        onClick={() => setSelectedPlan('mensual')}
-                        className={`p-3 sm:p-4 border-2 rounded-lg text-left transition-all ${
-                          selectedPlan === 'mensual' ? 'border-brand-600 bg-brand-50' : 'border-slate-200 hover:border-slate-300'
-                        }`}
-                      >
-                        <div className="font-semibold text-xs sm:text-sm md:text-base text-slate-900">Retiro mensual</div>
-                        <div className="text-xs sm:text-sm text-slate-600">2.5% - 7% mensual</div>
-                      </button>
+                      {plans.map((p) => (
+                        <button
+                          key={p._id}
+                          onClick={() => setSelectedPlan(p._id)}
+                          className={`p-3 sm:p-4 border-2 rounded-lg text-left transition-all ${
+                            selectedPlan === p._id ? 'border-brand-600 bg-brand-50' : 'border-slate-200 hover:border-slate-300'
+                          }`}
+                        >
+                          <div className="font-semibold text-xs sm:text-sm md:text-base text-slate-900">{p.name}</div>
+                          <div className="text-xs sm:text-sm text-slate-600">
+                            {p.return_rate} por ciclo · Ciclo: {p.withdrawal_period}
+                          </div>
+                        </button>
+                      ))}
                     </div>
                   </div>
                   <div className="bg-brand-50 p-4 sm:p-6 rounded-lg border-2 border-brand-200">
                     <div className="text-center">
-                      <div className="text-xs sm:text-sm text-slate-600 mb-2">Ingresos estimados (variables).</div>
-                      <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-600">
-                        ${calculateReturn().toLocaleString('es-ES', { maximumFractionDigits: 0 })}
+                      <div className="text-xs sm:text-sm text-slate-600 mb-2">
+                        Rango posible por ciclo{simulatedPlan ? ` (${simulatedPlan.withdrawal_period})` : ''}
+                      </div>
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600">
+                        $0 &ndash; ${simulatedMax().toLocaleString('es-ES', { maximumFractionDigits: 0 })}
                       </div>
                       <div className="text-xs sm:text-sm text-slate-600 mt-3 sm:mt-4">
-                        Retorno sobre inversión: {((calculateReturn() / calculatorAmount) * 100).toFixed(1)}%
+                        {simulatedPlan
+                          ? `${simulatedPlan.name}: el rendimiento va de 0% a ${simulatedPlan.rate_max}% por ciclo, según la ejecución de las operaciones.`
+                          : 'Selecciona un plan para ver el rango.'}
                       </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2.5 sm:p-3">
                     <Info className="h-3 w-3 sm:h-4 sm:w-4 text-slate-600 flex-shrink-0 mt-0.5" />
                     <p className="text-[10px] sm:text-xs text-slate-600">
-                      Valores estimados basados en desempeño histórico. Los resultados pueden variar.
+                      El rendimiento es variable y depende de la ejecución de cada operación. <strong>0% es un resultado posible</strong>; no existe garantía de capital ni de rentabilidad.
                     </p>
                   </div>
                   <Button onClick={() => setShowRegisterModal(true)} size="lg" className="w-full bg-brand-600 hover:bg-brand-700 text-sm sm:text-base">

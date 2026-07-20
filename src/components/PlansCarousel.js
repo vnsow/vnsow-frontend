@@ -129,7 +129,7 @@ const PlanCard = ({ plan, isSelected, onSelect, onShowMore }) => {
           <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600">
             {plan.return_rate}
           </div>
-          <div className="text-[10px] sm:text-xs text-brand-700 mt-1 font-medium">Rentabilidad mensual</div>
+          <div className="text-[10px] sm:text-xs text-brand-700 mt-1 font-medium">Rendimiento variable por ciclo</div>
         </div>
 
         {/* Detalles */}
@@ -151,15 +151,33 @@ const PlanCard = ({ plan, isSelected, onSelect, onShowMore }) => {
           <div className="flex items-start gap-2 text-xs sm:text-sm">
             <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600 mt-0.5 flex-shrink-0" />
             <span className="text-slate-700">
-              Retiros: {plan.withdrawal_period}
+              Ciclo: {plan.withdrawal_period}
             </span>
           </div>
           <div className="flex items-start gap-2 text-xs sm:text-sm">
             <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600 mt-0.5 flex-shrink-0" />
             <span className="text-slate-700">
-              Mercado: {plan.market}
+              Enfoque: {plan.market}
             </span>
           </div>
+          {plan.stop_loss !== undefined && plan.stop_loss !== null && (
+            <div className="flex items-start gap-2 text-xs sm:text-sm">
+              <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600 mt-0.5 flex-shrink-0" />
+              <span className="text-slate-700">
+                Stop-Loss: {plan.stop_loss}%
+              </span>
+            </div>
+          )}
+          {plan.early_withdrawal_penalty !== undefined && plan.early_withdrawal_penalty !== null && (
+            <div className="flex items-start gap-2 text-xs sm:text-sm">
+              <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600 mt-0.5 flex-shrink-0" />
+              <span className="text-slate-700">
+                {plan.early_withdrawal_penalty > 0
+                  ? `Penalidad retiro anticipado: ${plan.early_withdrawal_penalty}%`
+                  : 'Sin penalidad por retiro'}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </button>
