@@ -92,7 +92,7 @@ const LandingPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-brand-50 text-brand-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
             <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
-            <span className="text-xs sm:text-sm font-semibold">Rentabilidades del 2.5% al 7% mensual</span>
+            <span className="text-xs sm:text-sm font-semibold">Gestión activa de capital por ciclos</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight px-2">
             Ingeniería de Capital
@@ -116,14 +116,14 @@ const LandingPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-3xl mx-auto px-3">
           <Card className="border-2 hover:shadow-lg transition-shadow">
             <CardContent className="pt-4 sm:pt-6 pb-4 sm:pb-6 text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600 mb-1 sm:mb-2">2.5% - 7%</div>
-              <div className="text-xs sm:text-sm md:text-base text-slate-600">Rentabilidad mensual variable</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600 mb-1 sm:mb-2">3</div>
+              <div className="text-xs sm:text-sm md:text-base text-slate-600">Planes de Ejecución</div>
             </CardContent>
           </Card>
           <Card className="border-2 hover:shadow-lg transition-shadow">
             <CardContent className="pt-4 sm:pt-6 pb-4 sm:pb-6 text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600 mb-1 sm:mb-2">30</div>
-              <div className="text-xs sm:text-sm md:text-base text-slate-600">Días para retiro</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-600 mb-1 sm:mb-2">72h</div>
+              <div className="text-xs sm:text-sm md:text-base text-slate-600">Procesamiento de retiro</div>
             </CardContent>
           </Card>
         </div>
@@ -500,19 +500,19 @@ const LandingPage = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 sm:p-6">
                 <TrendingUp className="h-8 w-8 sm:h-10 sm:w-10 text-brand-600 mb-2" />
-                <CardTitle className="text-base sm:text-lg">Retornos Competitivos</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Rendimiento por Ejecución</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 pt-0">
-                <p className="text-xs sm:text-sm md:text-base text-slate-600">Rentabilidades del 2.5% al 7% mensual según tu plan de inversión seleccionado.</p>
+                <p className="text-xs sm:text-sm md:text-base text-slate-600">El rendimiento es variable y depende del éxito de cada operación; no es una tasa fija garantizada.</p>
               </CardContent>
             </Card>
             <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader className="p-4 sm:p-6">
                 <Clock className="h-8 w-8 sm:h-10 sm:w-10 text-brand-600 mb-2" />
-                <CardTitle className="text-base sm:text-lg">Retiros Rápidos</CardTitle>
+                <CardTitle className="text-base sm:text-lg">Liquidez Estratégica</CardTitle>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 pt-0">
-                <p className="text-xs sm:text-sm md:text-base text-slate-600">Accede a tus ganancias cada 30 días o mensualmente según tu preferencia.</p>
+                <p className="text-xs sm:text-sm md:text-base text-slate-600">El capital se libera al cierre del ciclo; los retiros se procesan en un máximo de 72 horas hábiles.</p>
               </CardContent>
             </Card>
           </div>

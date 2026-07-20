@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
             Políticas de Privacidad
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Última actualización: 9 de Enero, 2026
+            Última actualización: Julio 2026
           </p>
         </div>
       </section>
@@ -58,35 +58,33 @@ const PrivacyPolicy = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
+                <p className="text-slate-700 mb-4">
+                  En VNSOW recopilamos únicamente la información necesaria para operar el servicio y cumplir con nuestras obligaciones legales:
+                </p>
                 <h4 className="font-bold text-slate-900 mb-3">Datos Personales:</h4>
                 <ul className="space-y-3 text-slate-700 mb-4">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Información de Registro:</strong> Nombre completo, dirección de correo electrónico, fecha de nacimiento</span>
+                    <span><strong>Datos de Contacto:</strong> Dirección de correo electrónico y demás datos que usted nos proporcione para comunicarnos con usted y gestionar su cuenta</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Autenticación OAuth:</strong> Datos de perfil de Google (nombre, email, foto de perfil)</span>
+                    <span><strong>Historial de Transacciones:</strong> Registro de las operaciones realizadas a través de la plataforma (montos, fechas y estado de cada transacción)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Database className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <span><strong>Identificadores de Wallet:</strong> Direcciones de billeteras de criptoactivos asociadas a sus operaciones en el servicio</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Verificación KYC:</strong> Documento de identidad, comprobante de domicilio (cuando sea requerido)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Información Financiera:</strong> Datos de métodos de pago, historial de transacciones</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Datos de Uso:</strong> Dirección IP, tipo de dispositivo, navegador, actividad en la plataforma</span>
+                    <span><strong>Documentación KYC:</strong> Documentación de verificación de identidad que podamos solicitar en cumplimiento de las normativas AML/KYC (cuando sea requerido)</span>
                   </li>
                 </ul>
 
                 <h4 className="font-bold text-slate-900 mb-3 mt-6">Datos Técnicos:</h4>
                 <ul className="list-disc pl-6 space-y-2 text-slate-700">
-                  <li>Cookies y tecnologías similares para mejorar su experiencia</li>
-                  <li>Logs de servidor para seguridad y mantenimiento</li>
-                  <li>Análisis de uso de la plataforma para mejoras continuas</li>
+                  <li>Cookies y tecnologías similares necesarias para el funcionamiento de la plataforma</li>
+                  <li>Logs de servidor para seguridad y mantenimiento del servicio</li>
                 </ul>
               </CardContent>
             </Card>
