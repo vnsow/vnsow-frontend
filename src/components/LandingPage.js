@@ -95,11 +95,11 @@ const LandingPage = () => {
             <span className="text-xs sm:text-sm font-semibold">Rentabilidades del 2.5% al 7% mensual</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight px-2">
-            Haz crecer tu capital con
-            <span className="text-brand-600"> inversiones inteligentes</span>
+            Ingeniería de Capital
+            <span className="text-brand-600"> en Movimiento</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-            Plataforma de inversión profesional en mercados tangibles e intangibles. Retiros flexibles.
+            Sembrando capital en proyectos de alto impacto.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <Button onClick={() => setShowRegisterModal(true)} size="lg" className="bg-brand-600 hover:bg-brand-700 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6">
@@ -490,7 +490,7 @@ const LandingPage = () => {
               <div className="mb-3 sm:mb-4">
                 <img src={logoWhite} alt="VNSOW" className="h-6 sm:h-8" />
               </div>
-              <p className="text-slate-400 text-xs sm:text-sm mb-3 sm:mb-4">Plataforma de inversión profesional con retornos garantizados.</p>
+              <p className="text-slate-400 text-xs sm:text-sm mb-3 sm:mb-4">Ingeniería de capital en movimiento. Rendimientos variables según ejecución; no garantizados.</p>
 
               {/* Social Media Icons */}
               <div className="flex items-center gap-2 sm:gap-3">
@@ -551,7 +551,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="border-t border-slate-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-slate-400">
-            <p>&copy; 2025 vnsow.com. Todos los derechos reservados.</p>
+            <p>&copy; 2026 vnsow.com. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
