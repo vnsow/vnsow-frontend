@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Lock, ArrowLeft, AlertTriangle, CheckCircle2, Eye, Database, UserCheck } from 'lucide-react';
+import { Shield, Lock, ArrowLeft, AlertTriangle, CheckCircle2, Eye, Database, UserCheck, Ban, FileCheck, Gavel, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import logoFull from '../assets/icons/vnsow-logo.svg';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -99,12 +99,16 @@ const PrivacyPolicy = () => {
               </CardHeader>
               <CardContent className="pt-6">
                 <p className="text-slate-700 mb-4">
-                  Utilizamos la información recopilada para los siguientes propósitos:
+                  La información recopilada se utiliza <strong>exclusivamente</strong> para la operatividad del servicio y el cumplimiento de nuestras obligaciones legales. En concreto:
                 </p>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
                     <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span><strong>Prestación de Servicios:</strong> Procesar inversiones, retiros, y gestionar su cuenta</span>
+                    <span><strong>Operatividad del Servicio:</strong> Procesar operaciones, gestionar depósitos y retiros, y administrar su cuenta</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                    <span><strong>Validación de Transacciones:</strong> Verificar manualmente cada operación antes de su ejecución</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
@@ -112,21 +116,19 @@ const PrivacyPolicy = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span><strong>Cumplimiento Legal:</strong> Verificación KYC/AML y cumplimiento de regulaciones aplicables</span>
+                    <span><strong>Cumplimiento Legal:</strong> Verificación KYC/AML y cumplimiento de las normativas aplicables</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span><strong>Comunicación:</strong> Notificaciones importantes, actualizaciones de cuenta y soporte</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span><strong>Mejoras:</strong> Análisis de uso para optimizar la plataforma y servicios</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Eye className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span><strong>Marketing:</strong> Envío de promociones (solo con su consentimiento)</span>
+                    <span><strong>Comunicación Operativa:</strong> Notificaciones sobre el estado de sus operaciones, avisos de cuenta y soporte técnico</span>
                   </li>
                 </ul>
+
+                <div className="bg-slate-50 p-4 rounded-lg mt-4 border-2 border-slate-200">
+                  <p className="text-slate-700 text-sm">
+                    <strong>Lo que NO hacemos:</strong> VNSOW no utiliza sus datos personales con fines de marketing, publicidad, elaboración de perfiles comerciales ni segmentación. No enviamos comunicaciones promocionales ni cedemos su información con fines comerciales bajo ninguna circunstancia.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -139,7 +141,20 @@ const PrivacyPolicy = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <h4 className="font-bold text-slate-900 mb-3">Medidas de Seguridad Implementadas:</h4>
+                <p className="text-slate-700 mb-4">
+                  VNSOW aplica medidas técnicas y organizativas para proteger su información frente a accesos no autorizados, pérdida, alteración o divulgación indebida.
+                </p>
+
+                <div className="bg-white p-4 rounded-lg mb-4 border-2 border-brand-300">
+                  <div className="flex items-start gap-2">
+                    <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <p className="text-slate-700 text-sm">
+                      <strong>Validación Humana de Transacciones:</strong> como medida de seguridad adicional, <strong>toda transacción realizada en la plataforma pasa por una validación humana</strong> (auditoría manual) antes de ser ejecutada. Ninguna operación se procesa de forma totalmente automática, lo que reduce el riesgo de fraude y de errores operativos.
+                    </p>
+                  </div>
+                </div>
+
+                <h4 className="font-bold text-slate-900 mb-3">Medidas Técnicas y Organizativas:</h4>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
                     <Shield className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0"/>
@@ -184,31 +199,37 @@ const PrivacyPolicy = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
+                <div className="bg-red-50 p-4 rounded-lg mb-4 border-2 border-red-200">
+                  <div className="flex items-start gap-2">
+                    <Ban className="h-5 w-5 text-red-600 mt-1 flex-shrink-0" />
+                    <p className="text-red-900 font-semibold">
+                      VNSOW NO comparte, NO vende y NO divulga sus datos personales a terceros. Sin excepciones comerciales.
+                    </p>
+                  </div>
+                </div>
+
                 <p className="text-slate-700 mb-4">
-                  NO vendemos ni alquilamos su información personal. Solo compartimos datos en estas circunstancias:
+                  La única circunstancia en la que sus datos personales pueden ser divulgados es ante un <strong>requerimiento legal formal emitido por una autoridad competente</strong>:
                 </p>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span><strong>Proveedores de Servicios:</strong> Procesadores de pago, servicios de verificación KYC, proveedores de hosting (todos bajo acuerdos de confidencialidad)</span>
+                    <Gavel className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                    <span><strong>Requerimiento Legal:</strong> Orden judicial, requerimiento de una autoridad regulatoria o cualquier obligación legal de reporte que nos sea exigible</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span><strong>Cumplimiento Legal:</strong> Cuando sea requerido por ley, orden judicial o autoridades gubernamentales</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span><strong>Protección de Derechos:</strong> Para investigar fraude, violaciones de términos o proteger la seguridad</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold mt-1">•</span>
-                    <span><strong>Con su Consentimiento:</strong> En cualquier otra situación con su autorización explícita</span>
+                    <Gavel className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                    <span><strong>Obligaciones AML/KYC:</strong> Reporte de operaciones sospechosas a las unidades de inteligencia financiera cuando la normativa así lo exija</span>
                   </li>
                 </ul>
 
+                <h4 className="font-bold text-slate-900 mb-3 mt-6">Proveedores Técnicos Necesarios:</h4>
+                <p className="text-slate-700 mb-3">
+                  Para operar el servicio nos apoyamos en proveedores estrictamente necesarios (procesamiento de pagos, alojamiento e infraestructura). Estos proveedores actúan únicamente como encargados del tratamiento, procesan los datos siguiendo nuestras instrucciones, están sujetos a acuerdos de confidencialidad y solo acceden a la información imprescindible para prestar su servicio.
+                </p>
+
                 <div className="bg-blue-50 p-4 rounded-lg mt-4 border-2 border-blue-200">
                   <p className="text-blue-900 text-sm">
-                    <strong>Nota:</strong> Todos los terceros con acceso a sus datos están obligados contractualmente a mantener la confidencialidad y solo usar la información para los propósitos autorizados.
+                    <strong>Importante:</strong> El uso de estos proveedores <strong>no constituye una venta, cesión ni transferencia comercial</strong> de sus datos personales. Ninguno de ellos está autorizado a utilizar su información para fines propios, publicitarios o de perfilado.
                   </p>
                 </div>
               </CardContent>
@@ -219,20 +240,19 @@ const PrivacyPolicy = () => {
               <CardHeader className="bg-slate-50">
                 <CardTitle className="flex items-center gap-2">
                   <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">5</span>
-                  Cookies y Tecnologías de Seguimiento
+                  Cookies y Tecnologías Similares
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <p className="text-slate-700 mb-4">
-                  Utilizamos cookies y tecnologías similares para mejorar su experiencia:
+                  VNSOW utiliza únicamente las cookies necesarias para que la plataforma funcione de forma segura. No empleamos cookies publicitarias, de seguimiento entre sitios ni de perfilado comercial.
                 </p>
 
                 <h4 className="font-bold text-slate-900 mb-3">Tipos de Cookies que Usamos:</h4>
                 <ul className="space-y-3 text-slate-700 mb-4">
                   <li>• <strong>Cookies Esenciales:</strong> Necesarias para el funcionamiento de la plataforma (sesión, autenticación)</li>
-                  <li>• <strong>Cookies de Rendimiento:</strong> Análisis de uso para mejorar el servicio</li>
-                  <li>• <strong>Cookies de Funcionalidad:</strong> Recordar sus preferencias y configuraciones</li>
-                  <li>• <strong>Cookies de Marketing:</strong> Solo con su consentimiento, para personalizar contenido</li>
+                  <li>• <strong>Cookies de Seguridad:</strong> Detección de accesos no autorizados y protección de la sesión</li>
+                  <li>• <strong>Cookies de Funcionalidad:</strong> Recordar sus preferencias y configuraciones básicas de la interfaz</li>
                 </ul>
 
                 <p className="text-slate-700 text-sm bg-slate-50 p-3 rounded-lg border border-slate-200">
@@ -277,37 +297,32 @@ const PrivacyPolicy = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <h4 className="font-bold text-slate-900 mb-3">Usted tiene derecho a:</h4>
+                <p className="text-slate-700 mb-4">
+                  Como titular de los datos, usted puede solicitar en cualquier momento la <strong>rectificación</strong> o la <strong>eliminación</strong> de sus datos personales. Concretamente, tiene derecho a:
+                </p>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
                     <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Acceso:</strong> Solicitar copia de sus datos personales que tenemos</span>
+                    <span><strong>Acceso:</strong> Solicitar una copia de los datos personales que conservamos sobre usted</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Rectificación:</strong> Corregir datos inexactos o incompletos</span>
+                    <span><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos, desactualizados o incompletos</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Eliminación:</strong> Solicitar la eliminación de sus datos (sujeto a obligaciones legales)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Portabilidad:</strong> Recibir sus datos en formato estructurado y legible</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Oposición:</strong> Oponerse al procesamiento de sus datos para ciertos fines</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Restricción:</strong> Solicitar limitación del procesamiento de sus datos</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <UserCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
-                    <span><strong>Revocar Consentimiento:</strong> Retirar consentimiento para marketing en cualquier momento</span>
+                    <span><strong>Eliminación:</strong> Solicitar la supresión de sus datos personales de nuestros sistemas</span>
                   </li>
                 </ul>
+
+                <div className="bg-amber-50 p-4 rounded-lg mt-4 border-2 border-amber-300">
+                  <div className="flex items-start gap-2">
+                    <AlertTriangle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <p className="text-amber-900 text-sm">
+                      <strong>Límite legal:</strong> estos derechos podrán ejercerse <strong>siempre que su ejercicio no contravenga las normativas de retención financiera</strong> aplicables. La legislación AML/KYC y las obligaciones contables nos exigen conservar determinados registros (historial de transacciones, documentación de verificación de identidad) durante plazos legalmente establecidos. En esos casos, la eliminación podrá quedar diferida hasta el vencimiento del plazo de retención obligatorio, informándole debidamente del motivo.
+                    </p>
+                  </div>
+                </div>
 
                 <div className="bg-slate-50 p-4 rounded-lg mt-4">
                   <p className="text-slate-700 text-sm">
@@ -318,11 +333,46 @@ const PrivacyPolicy = () => {
               </CardContent>
             </Card>
 
-            {/* Section 8 */}
+            {/* Section 8 - AML/KYC */}
+            <Card className="border-2 border-amber-300">
+              <CardHeader className="bg-amber-50">
+                <CardTitle className="flex items-center gap-2">
+                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">8</span>
+                  Prevención de Blanqueo de Capitales (AML/KYC)
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <p className="text-slate-700 mb-4">
+                  VNSOW opera bajo estrictas políticas de prevención de blanqueo de capitales y financiación del terrorismo. Al utilizar la plataforma, usted acepta las siguientes condiciones:
+                </p>
+                <ul className="space-y-3 text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <FileCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <span><strong>Solicitud de Documentación:</strong> La plataforma puede solicitarle documentación KYC (verificación de identidad, comprobante de domicilio, justificación del origen de los fondos) <strong>en cualquier momento</strong>, incluso después de haber operado con normalidad. La negativa a aportarla puede derivar en la suspensión de la cuenta.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FileCheck className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <span><strong>Origen Lícito de los Fondos:</strong> El usuario <strong>garantiza y declara</strong> que la totalidad de los fondos que deposita o gestiona a través de la plataforma proviene de fuentes lícitas y de actividades legales, y que no está sujeto a sanciones internacionales.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertTriangle className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
+                    <span><strong>Congelación y Reporte:</strong> Ante la detección de irregularidades, inconsistencias documentales u operaciones sospechosas, <strong>los fondos podrán ser congelados de forma preventiva y reportados a las autoridades competentes</strong>, conforme a la normativa vigente.</span>
+                  </li>
+                </ul>
+
+                <div className="bg-amber-50 p-4 rounded-lg mt-4 border-2 border-amber-300">
+                  <p className="text-amber-900 text-sm">
+                    <strong>Importante:</strong> En los supuestos de reporte obligatorio, la normativa puede impedirnos legalmente informar al usuario sobre la existencia o el contenido de dicha comunicación a las autoridades.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Section 9 */}
             <Card className="border-2">
               <CardHeader className="bg-slate-50">
                 <CardTitle className="flex items-center gap-2">
-                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">8</span>
+                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">9</span>
                   Transferencias Internacionales
                 </CardTitle>
               </CardHeader>
@@ -338,11 +388,11 @@ const PrivacyPolicy = () => {
               </CardContent>
             </Card>
 
-            {/* Section 9 */}
+            {/* Section 10 */}
             <Card className="border-2">
               <CardHeader className="bg-slate-50">
                 <CardTitle className="flex items-center gap-2">
-                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">9</span>
+                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">10</span>
                   Menores de Edad
                 </CardTitle>
               </CardHeader>
@@ -361,11 +411,11 @@ const PrivacyPolicy = () => {
               </CardContent>
             </Card>
 
-            {/* Section 10 */}
+            {/* Section 11 */}
             <Card className="border-2">
               <CardHeader className="bg-slate-50">
                 <CardTitle className="flex items-center gap-2">
-                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">10</span>
+                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">11</span>
                   Cambios a esta Política
                 </CardTitle>
               </CardHeader>
@@ -385,22 +435,31 @@ const PrivacyPolicy = () => {
               </CardContent>
             </Card>
 
-            {/* Section 11 */}
+            {/* Section 12 */}
             <Card className="border-2">
               <CardHeader className="bg-slate-50">
                 <CardTitle className="flex items-center gap-2">
-                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">11</span>
-                  Contacto - Oficial de Privacidad
+                  <span className="bg-brand-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">12</span>
+                  Contacto
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
                 <p className="text-slate-700 mb-4">
-                  Para preguntas, solicitudes o inquietudes sobre privacidad:
+                  Para ejercer sus derechos o realizar cualquier consulta relacionada con el tratamiento de sus datos personales:
                 </p>
-                <div className="bg-slate-50 p-4 rounded-lg">
-                  <p className="text-slate-700"><strong>Email de Privacidad:</strong> privacy@vnsow.com</p>
-                  <p className="text-slate-700"><strong>Email General:</strong> support@vnsow.com</p>
-                  <p className="text-slate-700"><strong>Sitio web:</strong> www.vnsow.com</p>
+                <div className="bg-slate-50 p-4 rounded-lg space-y-2">
+                  <div className="flex items-start gap-2">
+                    <Mail className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <p className="text-slate-700"><strong>Asuntos de Privacidad:</strong> privacy@vnsow.com</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Mail className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <p className="text-slate-700"><strong>Soporte General:</strong> support@vnsow.com</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Database className="h-5 w-5 text-brand-600 mt-1 flex-shrink-0" />
+                    <p className="text-slate-700"><strong>Sitio web:</strong> www.vnsow.com</p>
+                  </div>
                   <p className="text-slate-700 mt-2 text-sm">Tiempo de respuesta: 5-10 días hábiles para solicitudes de privacidad</p>
                 </div>
               </CardContent>
@@ -436,7 +495,7 @@ const PrivacyPolicy = () => {
       <footer className="bg-slate-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-slate-400 text-sm">&copy; 2026 vnsow.com. Todos los derechos reservados.</p>
-          <p className="text-slate-500 text-xs mt-2">Última actualización: 9 de Enero, 2026</p>
+          <p className="text-slate-500 text-xs mt-2">Última actualización: Julio 2026</p>
         </div>
       </footer>
     </div>

@@ -10,154 +10,54 @@ const FAQ = () => {
 
   const faqs = [
     {
-      category: "General",
+      category: "Modelo y Planes de Ejecución",
       questions: [
         {
-          question: "¿Qué es vnsow.com?",
-          answer: "vnsow.com es una plataforma profesional de inversión que ofrece acceso a mercados tangibles e intangibles con retornos variables del 2.5% al 7% mensual, dependiendo del plan seleccionado y las condiciones del mercado."
+          question: "¿Qué es VNSOW?",
+          answer: "VNSOW (vnsow.com) es una aceleradora de gestión de capital. No somos un banco ni un producto de ahorro con interés fijo: operamos capital de terceros bajo estrategias de ejecución definidas, con control de riesgo activo y validación humana en cada activación.\n\nEl modelo se articula en tres planes de ejecución (FLEX, IMPULSO y RAÍCES), cada uno con su propio ciclo, rango de rendimiento variable y límite de pérdida (stop-loss).\n\nOperamos bajo políticas de cumplimiento AML/KYC y jurisdicción legal en Delaware (USA), con resolución de disputas por arbitraje vinculante."
         },
         {
-          question: "¿Cómo funciona la plataforma?",
-          answer: "Registras tu cuenta con Google, seleccionas un plan de inversión según tu perfil de riesgo, realizas tu inversión mínima de $100, y comienzas a generar retornos variables. Puedes retirar tus ganancias cada 30 días o mensualmente según el plan elegido."
+          question: "¿Cómo funcionan los planes de ejecución?",
+          answer: "Cada plan define un ciclo, una estrategia y un límite de pérdida:\n\n• FLEX — Ciclo de 24 horas. Estrategia de arbitraje de latencia. Rendimiento variable de 0% a 2% por día. Stop-loss en -10%. Sin penalidad de retiro.\n\n• IMPULSO — Ciclo de 30 días. Capital semilla aplicado a proyectos en evaluación. Rendimiento variable de 0% a 4% por mes. Stop-loss en -5%. Penalidad de retiro anticipado del 2%.\n\n• RAÍCES — Ciclo de 180 días. Activos físicos. Rendimiento variable de 0% a 15% por ciclo. Stop-loss en -3%. Penalidad de retiro anticipado del 5%.\n\nLos rangos indicados son límites de desempeño esperado, no promesas de pago. El resultado real de cada ciclo puede situarse en cualquier punto del rango, incluido 0%, o ser negativo hasta el stop-loss."
         },
         {
-          question: "¿Cuál es la inversión mínima?",
-          answer: "La inversión mínima es de $100 USD en nuestro plan básico 'Retiro 30 días' que ofrece retornos variables del 2.5% al 7% mensual."
-        },
-        {
-          question: "¿Los retornos están garantizados?",
-          answer: "Los retornos son VARIABLES y dependen de las condiciones del mercado. Los porcentajes mostrados (2.5%-7%) son estimados basados en desempeño histórico, pero pueden fluctuar hacia arriba o hacia abajo según la volatilidad de los activos tangibles e intangibles."
+          question: "¿El rendimiento está garantizado?",
+          answer: "NO. El rendimiento es VARIABLE y no está garantizado en ningún plan.\n\n• Los rangos publicados (0%–2% diario en FLEX, 0%–4% mensual en IMPULSO, 0%–15% por ciclo en RAÍCES) parten en 0%. Un ciclo puede cerrar sin rendimiento alguno.\n• El resultado depende exclusivamente de la ejecución de la estrategia y de las condiciones reales del mercado o del activo.\n• Existe riesgo real de pérdida parcial o total del capital aportado.\n• El stop-loss limita la exposición, pero no elimina el riesgo ni asegura la devolución del capital.\n• VNSOW no ofrece interés fijo, ni capital protegido, ni ninguna forma de garantía de retorno.\n\nAporta únicamente capital que puedas permitirte perder."
         }
       ]
     },
     {
-      category: "Seguridad y Protección de Datos",
+      category: "Control de Riesgo y Validación",
       questions: [
         {
-          question: "¿Cómo protegen mis datos personales?",
-          answer: "Utilizamos autenticación OAuth 2.0 con Google para máxima seguridad. Tus datos están encriptados con TLS 1.3 en tránsito y AES-256 en reposo. No almacenamos contraseñas. Cumplimos con estándares internacionales de protección de datos."
+          question: "¿Qué es la validación humana?",
+          answer: "Ninguna activación se ejecuta de forma automática. Toda solicitud pasa por una auditoría manual realizada por nuestro equipo antes de entrar en operación.\n\nDurante la validación se revisa la consistencia del aporte, el cumplimiento AML/KYC y la coherencia entre el plan elegido y el perfil de riesgo declarado.\n\nEl plazo máximo de activación es de 24 horas hábiles desde la recepción del aporte. El ciclo del plan comienza a contar únicamente desde el momento de la activación, no desde la solicitud."
         },
         {
-          question: "¿Quién tiene acceso a mi información?",
-          answer: "Solo el personal administrativo autorizado puede ver tu información de contacto y pago para procesar retiros. Nunca compartimos tu información con terceros sin tu consentimiento explícito."
-        },
-        {
-          question: "¿Es segura mi inversión?",
-          answer: "Diversificamos las inversiones en múltiples activos tangibles (bienes raíces, metales preciosos) e intangibles (criptomonedas, DeFi) para minimizar riesgos. Sin embargo, toda inversión conlleva riesgos y los retornos son variables."
-        },
-        {
-          question: "¿Cómo protegen mi dinero?",
-          answer: "Los fondos se mantienen en cuentas separadas y se invierten según protocolos de gestión de riesgo. Implementamos auditorías periódicas y seguimiento continuo de las inversiones."
+          question: "¿Qué es el stop-loss y cómo funciona?",
+          answer: "El stop-loss es un límite automático de pérdida asociado a cada plan. Cuando la posición alcanza ese umbral, se cierra de forma automática para impedir que la pérdida siga creciendo.\n\n• FLEX: se cierra al alcanzar -10%.\n• IMPULSO: se cierra al alcanzar -5%.\n• RAÍCES: se cierra al alcanzar -3%.\n\nAl activarse, el ciclo termina y el capital remanente queda disponible según los plazos de liquidez. El stop-loss es una herramienta de contención de riesgo, no un seguro: no garantiza la recuperación del capital ni evita pérdidas en escenarios de mercado extremos."
         }
       ]
     },
     {
-      category: "Inversiones y Planes",
+      category: "Liquidez y Retiros",
       questions: [
         {
-          question: "¿Qué tipos de inversiones realizan?",
-          answer: "Invertimos en dos categorías principales:\n\n• TANGIBLES: Bienes raíces, metales preciosos, commodities, arte y coleccionables.\n\n• INTANGIBLES: Criptomonedas (Bitcoin, Ethereum), trading algorítmico, protocolos DeFi, NFTs premium."
+          question: "¿Cuándo puedo retirar mi capital?",
+          answer: "VNSOW opera bajo un esquema de liquidez estratégica: el capital base permanece comprometido durante el ciclo y se libera al cierre del mismo.\n\n• FLEX: cierre a las 24 horas.\n• IMPULSO: cierre a los 30 días.\n• RAÍCES: cierre a los 180 días.\n\nUna vez cerrado el ciclo puedes solicitar el retiro. Las solicitudes se procesan en un máximo de 72 horas hábiles. Los retiros están sujetos a la verificación AML/KYC vigente."
         },
         {
-          question: "¿Puedo elegir en qué se invierte mi dinero?",
-          answer: "Seleccionas el tipo de mercado (tangible o intangible) al elegir tu plan. Nuestro equipo de gestión profesional decide las inversiones específicas para optimizar retornos y minimizar riesgos."
-        },
-        {
-          question: "¿Puedo tener múltiples inversiones?",
-          answer: "Sí, puedes crear múltiples inversiones simultáneas en diferentes planes para diversificar tu portafolio y maximizar oportunidades."
-        },
-        {
-          question: "¿Qué plan me recomienda?",
-          answer: "• Plan 2.5-7% (30 días): Retornos variables según las condiciones del mercado, con acceso a activos tangibles e intangibles."
+          question: "¿Qué pasa si retiro antes del vencimiento?",
+          answer: "El retiro anticipado rompe el ciclo de ejecución y aplica una penalidad sobre el capital:\n\n• FLEX: sin penalidad. El ciclo de 24 horas permite salir sin costo.\n• IMPULSO: penalidad del 2% por retiro anticipado.\n• RAÍCES: penalidad del 5% por retiro anticipado.\n\nLa penalidad compensa el desmontaje anticipado de la posición. Al solicitar un retiro anticipado, el rendimiento del ciclo en curso no se consolida y el importe resultante se procesa dentro de las 72 horas hábiles posteriores a la aprobación."
         }
       ]
     },
     {
-      category: "Retiros y Pagos",
+      category: "Proyectos Semilla y Contacto",
       questions: [
         {
-          question: "¿Cómo retiro mis ganancias?",
-          answer: "1. Ve a tu Dashboard\n2. Completa tu información de pago (banco, cripto, PayPal)\n3. Los retiros se procesan según el calendario de tu plan\n4. Recibes el pago en tu método seleccionado\n\nTiempo de procesamiento: 24-72 horas hábiles."
-        },
-        {
-          question: "¿Qué métodos de pago aceptan?",
-          answer: "Aceptamos:\n• Wallet TRC20\n• Binance Pay\n• Transferencia Bancaria\n• Zelle\n• PayPal"
-        },
-        {
-          question: "¿Puedo retirar mi capital inicial?",
-          answer: "El capital inicial permanece invertido durante el periodo del plan. Las ganancias se pueden retirar según el calendario (cada 30 días o mensual). Para retirar el capital completo, debes completar el ciclo del plan o solicitar cierre anticipado (puede aplicar penalización)."
-        },
-        {
-          question: "¿Hay límites de retiro?",
-          answer: "No hay límite máximo de retiro. El mínimo de retiro es $50 USD para cubrir costos de procesamiento. Retiros mayores a $10,000 pueden requerir verificación adicional de seguridad."
-        },
-        {
-          question: "¿Cobran comisiones por retiro?",
-          answer: "No cobramos comisiones en retiros estándar. Sin embargo, algunos métodos de pago (transferencias internacionales, criptomonedas) pueden tener costos de red que son absorbidos por el usuario."
-        }
-      ]
-    },
-    {
-      category: "Sistema de Referidos",
-      questions: [
-        {
-          question: "¿Cómo funciona el sistema de referidos?",
-          answer: "Recibes un código único al registrarte. Cuando alguien se registra con tu código e invierte, obtienes el 6% del monto de su primera inversión como bono. El bono se acredita inmediatamente."
-        },
-        {
-          question: "¿Cuántos referidos puedo tener?",
-          answer: "No hay límite. Puedes referir a tantas personas como desees y seguir ganando el 6% por cada una que invierta."
-        },
-        {
-          question: "¿Cuándo recibo el bono de referido?",
-          answer: "El bono del 6% se acredita automáticamente a tu cuenta cuando tu referido completa su primera inversión. Puedes retirarlo junto con tus otras ganancias."
-        }
-      ]
-    },
-    {
-      category: "Cuenta y Verificación",
-      questions: [
-        {
-          question: "¿Necesito verificar mi identidad?",
-          answer: "El registro inicial solo requiere autenticación con Google. Para retiros mayores a $5,000 acumulados, podemos solicitar verificación adicional de identidad (KYC) por seguridad y cumplimiento regulatorio."
-        },
-        {
-          question: "¿Puedo cambiar mi información de pago?",
-          answer: "Sí, puedes actualizar tu información de pago en cualquier momento desde tu Dashboard. Los cambios aplican para retiros futuros."
-        },
-        {
-          question: "¿Qué pasa si pierdo acceso a mi cuenta de Google?",
-          answer: "Contacta a soporte con tu información de pago registrada y última transacción. Verificaremos tu identidad y te ayudaremos a recuperar acceso o transferir a nueva cuenta."
-        }
-      ]
-    },
-    {
-      category: "Riesgos y Responsabilidades",
-      questions: [
-        {
-          question: "¿Qué riesgos existen al invertir?",
-          answer: "RIESGOS IMPORTANTES:\n\n• Volatilidad del mercado: Los retornos son variables\n• Riesgo de capital: Posible pérdida parcial o total\n• Liquidez: Restricciones en retiros anticipados\n• Mercado cripto: Alta volatilidad en intangibles\n• Riesgos regulatorios: Cambios en legislación\n\nInvierte solo lo que puedas permitirte perder."
-        },
-        {
-          question: "¿Garantizan devolución del capital?",
-          answer: "NO garantizamos devolución del capital. Los retornos son variables y pueden ser positivos o negativos según mercado. Toda inversión conlleva riesgos. Lee los Términos y Condiciones antes de invertir."
-        },
-        {
-          question: "¿Qué sucede en caso de pérdidas?",
-          answer: "Si las inversiones generan pérdidas, esto se refleja en tu cuenta. Los retornos pueden ser menores al estimado o incluso negativos en periodos específicos. Diversificamos para minimizar este riesgo pero no lo eliminamos."
-        }
-      ]
-    },
-    {
-      category: "Soporte y Contacto",
-      questions: [
-        {
-          question: "¿Cómo contacto con soporte?",
-          answer: "Puedes contactarnos por:\n\n• Email: support@vnsow.com\n• Chat en vivo (próximamente)\n• Formulario de contacto en la web\n\nTiempo de respuesta: 24-48 horas hábiles."
-        },
-        {
-          question: "¿Tienen horario de atención?",
-          answer: "El sistema está disponible 24/7. Soporte humano opera de Lunes a Viernes, 9:00 AM - 6:00 PM (zona horaria EST). Consultas urgentes fuera de horario se atienden el siguiente día hábil."
+          question: "¿Cómo envío un proyecto para evaluación?",
+          answer: "El plan IMPULSO canaliza capital semilla hacia proyectos previamente evaluados. Si tienes un proyecto y buscas financiación, puedes enviarlo a evaluación escribiendo a support@vnsow.com.\n\nIncluye en tu propuesta:\n\n• Descripción del proyecto y modelo de negocio\n• Capital requerido y destino específico de los fondos\n• Estado actual de ejecución y tracción demostrable\n• Equipo responsable y estructura legal\n• Proyecciones y riesgos identificados\n\nCada propuesta se somete a revisión manual. La recepción de una propuesta no implica aceptación ni compromiso de financiación por parte de VNSOW."
         }
       ]
     }
@@ -188,7 +88,7 @@ const FAQ = () => {
             Preguntas Frecuentes
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Encuentra respuestas a las preguntas más comunes sobre inversiones, seguridad, retiros y más
+            Todo sobre los planes de ejecución FLEX, IMPULSO y RAÍCES: ciclos, rendimiento variable, control de riesgo y liquidez
           </p>
         </div>
       </section>
@@ -201,12 +101,12 @@ const FAQ = () => {
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Shield className="h-6 w-6 text-brand-600" />
-                <CardTitle className="text-brand-900">Tu Seguridad es Nuestra Prioridad</CardTitle>
+                <CardTitle className="text-brand-900">Rendimiento Variable y Control de Riesgo</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
               <p className="text-brand-800">
-                Utilizamos encriptación de nivel bancario, autenticación OAuth 2.0, y cumplimos con estándares internacionales de protección de datos. Tu información y fondos están protegidos con las mejores tecnologías de seguridad disponibles.
+                VNSOW es una aceleradora de gestión de capital, no un producto de ahorro. El rendimiento de cada plan es <strong>variable y no garantizado</strong>, y existe riesgo real de pérdida parcial o total del capital. Cada activación pasa por validación humana en un máximo de 24 h hábiles y opera con stop-loss automático bajo cumplimiento AML/KYC.
               </p>
             </CardContent>
           </Card>
