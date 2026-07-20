@@ -1,0 +1,374 @@
+import React, { useState } from 'react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Separator } from './ui/separator';
+import axios from 'axios';
+import { Eye, EyeOff, Mail, Lock, User, Phone, AlertCircle, Loader2 } from 'lucide-react';
+import { loginWithGoogle, BACKEND_UNAVAILABLE_MESSAGE } from '../utils/backendHealth';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
+const RegisterModal = ({ open, onOpenChange, onSwitchToLogin }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError(''); // Limpiar error al escribir
+    if (attemptedSubmit) setAttemptedSubmit(false); // Reset validation state
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setAttemptedSubmit(true);
+    setLoading(true);
+
+    // Validaciones
+    if (!formData.name || !formData.email || !formData.password) {
+      setError('Por favor completa todos los campos obligatorios');
+      setLoading(false);
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError('La contraseña debe tener al menos 6 caracteres');
+      setLoading(false);
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Las contraseñas no coinciden');
+      setLoading(false);
+      return;
+    }
+
+    // Validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Por favor ingresa un email válido');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await axios.post(`${BACKEND_URL}/api/auth/register`, {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        phone: formData.phone || null,
+      });
+
+      setSuccess(true);
+
+      // Después de 2 segundos, cambiar al modal de login
+      setTimeout(() => {
+        setSuccess(false);
+        onOpenChange(false);
+        onSwitchToLogin();
+      }, 2000);
+    } catch (err) {
+      const errorMessage = err.response?.data?.detail || 'Error al registrar usuario';
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    if (loading) return;
+    setError('');
+    setLoading(true);
+    try {
+      await loginWithGoogle();
+    } catch (e) {
+      setError(BACKEND_UNAVAILABLE_MESSAGE);
+      setLoading(false);
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      phone: '',
+    });
+    setError('');
+    setSuccess(false);
+  };
+
+  const handleOpenChange = (newOpen) => {
+    if (!newOpen) {
+      resetForm();
+    }
+    onOpenChange(newOpen);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogContent className="max-w-[calc(100vw-2rem)] sm:max-w-md max-h-[90vh] overflow-y-auto rounded-2xl">
+        <DialogHeader>
+          <DialogTitle className="text-xl sm:text-2xl font-bold text-center">Crear Cuenta</DialogTitle>
+          <DialogDescription className="text-xs sm:text-sm text-center">
+            Regístrate para comenzar a invertir hoy
+          </DialogDescription>
+        </DialogHeader>
+
+        {success ? (
+          <div className="py-6 sm:py-8 text-center">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">¡Cuenta creada exitosamente!</h3>
+            <p className="text-sm sm:text-base text-slate-600">Redirigiendo al inicio de sesión...</p>
+          </div>
+        ) : (
+          <>
+            {/* Botón de Google */}
+            <Button
+              onClick={handleGoogleLogin}
+              variant="outline"
+              disabled={loading}
+              className="w-full border-2 hover:bg-slate-50 text-sm sm:text-base h-10 sm:h-11"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-spin" />
+                  <span className="text-sm sm:text-base">Conectando...</span>
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" viewBox="0 0 24 24">
+                    <path
+                      fill="#4285F4"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                    />
+                  </svg>
+                  <span className="text-sm sm:text-base">Continuar con Google</span>
+                </>
+              )}
+            </Button>
+
+            <div className="relative">
+              <Separator />
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-[10px] sm:text-xs text-slate-500">
+                O regístrate con email
+              </span>
+            </div>
+
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-xs sm:text-sm">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} noValidate className="space-y-3 sm:space-y-4">
+              {/* Nombre */}
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="name" className="text-xs sm:text-sm">Nombre completo *</Label>
+                <div className="relative">
+                  <User className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="John Smith"
+                    value={formData.name}
+                    onChange={handleChange}
+                    autoComplete="name"
+                    className={`pl-8 sm:pl-10 text-sm sm:text-base h-9 sm:h-10 ${
+                      attemptedSubmit && !formData.name
+                        ? 'border-red-500 focus-visible:ring-red-500'
+                        : ''
+                    }`}
+                    required
+                  />
+                </div>
+                {attemptedSubmit && !formData.name && (
+                  <div className="flex items-center gap-1 text-red-600 text-xs sm:text-sm">
+                    <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <span>El nombre es obligatorio</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Email */}
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="email" className="text-xs sm:text-sm">Email *</Label>
+                <div className="relative">
+                  <Mail className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="tu@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    autoComplete="email"
+                    className={`pl-8 sm:pl-10 text-sm sm:text-base h-9 sm:h-10 ${
+                      attemptedSubmit && !formData.email
+                        ? 'border-red-500 focus-visible:ring-red-500'
+                        : ''
+                    }`}
+                    required
+                  />
+                </div>
+                {attemptedSubmit && !formData.email && (
+                  <div className="flex items-center gap-1 text-red-600 text-xs sm:text-sm">
+                    <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <span>El email es obligatorio</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Teléfono (opcional) */}
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="phone" className="text-xs sm:text-sm">Teléfono (opcional)</Label>
+                <div className="relative">
+                  <Phone className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+1234567890"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    autoComplete="tel"
+                    className="pl-8 sm:pl-10 text-sm sm:text-base h-9 sm:h-10"
+                  />
+                </div>
+              </div>
+
+              {/* Contraseña */}
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="password" className="text-xs sm:text-sm">Contraseña *</Label>
+                <div className="relative">
+                  <Lock className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
+                  <Input
+                    id="password"
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Mínimo 6 caracteres"
+                    value={formData.password}
+                    onChange={handleChange}
+                    autoComplete="new-password"
+                    className={`pl-8 sm:pl-10 pr-9 sm:pr-10 text-sm sm:text-base h-9 sm:h-10 ${
+                      attemptedSubmit && !formData.password
+                        ? 'border-red-500 focus-visible:ring-red-500'
+                        : ''
+                    }`}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Eye className="h-4 w-4 sm:h-5 sm:w-5" />}
+                  </button>
+                </div>
+                {attemptedSubmit && !formData.password && (
+                  <div className="flex items-center gap-1 text-red-600 text-xs sm:text-sm">
+                    <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <span>La contraseña es obligatoria</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Confirmar Contraseña */}
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="confirmPassword" className="text-xs sm:text-sm">Confirmar contraseña *</Label>
+                <div className="relative">
+                  <Lock className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    placeholder="Confirma tu contraseña"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    autoComplete="new-password"
+                    className={`pl-8 sm:pl-10 pr-9 sm:pr-10 text-sm sm:text-base h-9 sm:h-10 ${
+                      attemptedSubmit && !formData.confirmPassword
+                        ? 'border-red-500 focus-visible:ring-red-500'
+                        : ''
+                    }`}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  >
+                    {showConfirmPassword ? <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Eye className="h-4 w-4 sm:h-5 sm:w-5" />}
+                  </button>
+                </div>
+                {attemptedSubmit && !formData.confirmPassword && (
+                  <div className="flex items-center gap-1 text-red-600 text-xs sm:text-sm">
+                    <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <span>Debes confirmar tu contraseña</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Botón de registro */}
+              <Button
+                type="submit"
+                className="w-full bg-brand-600 hover:bg-brand-700 text-sm sm:text-base h-9 sm:h-10"
+                disabled={loading}
+              >
+                {loading ? 'Creando cuenta...' : 'Crear cuenta'}
+              </Button>
+            </form>
+
+            {/* Link para cambiar a login */}
+            <div className="text-center text-xs sm:text-sm">
+              <span className="text-slate-600">¿Ya tienes cuenta?</span>{' '}
+              <button
+                onClick={() => {
+                  resetForm();
+                  onOpenChange(false);
+                  onSwitchToLogin();
+                }}
+                className="text-brand-600 hover:text-brand-700 font-semibold"
+              >
+                Iniciar sesión
+              </button>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default RegisterModal;

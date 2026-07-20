@@ -1,0 +1,20 @@
+# robots.txt para iastake.com (Versión oficial sin WWW)
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+
+# Sitemap (Actualizado a la versión sin www para evitar conflictos)
+Sitemap: https://iastake.com/sitemap.xml
+
+# Configuraciones específicas para bots (Simplificado)
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
